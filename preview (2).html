@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta charset="UTF-8">
+<title>Obejmutí stromu dvěma rukama</title>
+<style>
+
+body{
+background:#eef7ee;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+font-family:sans-serif;
+}
+
+svg{
+width:500px;
+height:350px;
+}
+
+.person{
+animation:walk 3s forwards;
+}
+
+.arm-left, .arm-right{
+stroke:black;
+stroke-width:6;
+fill:none;
+stroke-linecap:round;
+}
+
+@keyframes walk{
+0% { transform: translateX(-120px);}
+70% { transform: translateX(0);}
+100% { transform: translateX(0);}
+}
+
+@keyframes hug-left{
+0% { d: path("M220 180 Q220 180 220 180"); }
+70% { d: path("M220 180 Q220 180 220 180"); }
+100% { d: path("M220 180 Q180 200 280 200"); }
+}
+
+@keyframes hug-right{
+0% { d: path("M220 180 Q220 180 220 180"); }
+70% { d: path("M220 180 Q220 180 220 180"); }
+100% { d: path("M220 180 Q260 160 280 200"); }
+}
+
+.text{
+position:absolute;
+top:10px;
+width:100%;
+text-align:center;
+font-size:18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="text">Odhad obvodu stromu pomocí dvou rukou</div>
+
+<svg viewBox="0 0 500 350">
+
+<!-- strom -->
+<rect x="240" y="160" width="60" height="150" fill="#8b5a2b" rx="10"/>
+<circle cx="270" cy="120" r="70" fill="#3fa34d"/>
+
+<!-- postava -->
+<g class="person">
+
+<!-- hlava -->
+<circle cx="220" cy="170" r="12" fill="#f2c29b"/>
+
+<!-- tělo -->
+<line x1="220" y1="182" x2="220" y2="240" stroke="black" stroke-width="6"/>
+
+<!-- nohy -->
+<line x1="220" y1="240" x2="205" y2="280" stroke="black" stroke-width="6"/>
+<line x1="220" y1="240" x2="235" y2="280" stroke="black" stroke-width="6"/>
+
+<!-- ruce -->
+<path class="arm-left" d="M220 180 Q220 180 220 180" style="animation:hug-left 3s forwards;"/>
+<path class="arm-right" d="M220 180 Q220 180 220 180" style="animation:hug-right 3s forwards;"/>
+
+</g>
+
+</svg>
+
+</body>
+</html>
